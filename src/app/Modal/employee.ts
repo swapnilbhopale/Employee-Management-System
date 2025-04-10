@@ -1,4 +1,4 @@
-export class EmpModal {
+export class IEmpModal {
   employeeId: number;
   fullName: string;
   email: string;
@@ -32,5 +32,18 @@ export interface IDepartment {
 export interface IDesigantion {
   designationId: number;
   departmentId: number;
+  designationName: string;
+}
+
+export interface IEmployeeList {
+  employeeId: number;
+  fullName: string;
+  email: string;
+  phone: string;
+  gender: string;
+  dateOfJoining: string;
+  employeeType: string;
+  salary: number;
+  departmentName: string;
   designationName: string;
 }

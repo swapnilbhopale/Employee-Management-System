@@ -1,1 +1,46 @@
-<p>employee-list works!</p>
+<div class="container-fluid mt-2">
+  <div class="card">
+    <div class="card-header bg-info">Employee List Portal</div>
+    <div class="card-body">
+      <table class="table table-bordered table-striped">
+        <thead class="text-center">
+          <tr>
+            <th>Sr No.</th>
+            <th>Full Name</th>
+            <th>Phone</th>
+            <th>Email</th>
+            <th>Joining Date</th>
+            <th>Epmloyee Type</th>
+            <th>Epmloyee Department</th>
+            <th>Epmloyee Designation</th>
+            <th>Action</th>
+          </tr>
+        </thead>
+        <tbody>
+          @for( item of employeeList; track $index){
+          <tr>
+            <td>{{ $index + 1 }}</td>
+            <td>{{ item.fullName }}</td>
+            <td>{{ item.phone }}</td>
+            <td>{{ item.email }}</td>
+            <td>{{ item.dateOfJoining | date : "dd-MMM-yyyy" }}</td>
+            <td>{{ item.employeeType }}</td>
+            <td>{{ item.departmentName }}</td>
+            <td>{{ item.designationName }}</td>
+            <td>
+              <Button class="btn btn-info" (click)="onEdit(item.employeeId)"
+                >Edit</Button
+              >
+              <Button
+                class="btn btn-warning"
+                (click)="removeEmp(item.employeeId)"
+                >Remove</Button
+              >
+            </td>
+          </tr>
+          }
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
