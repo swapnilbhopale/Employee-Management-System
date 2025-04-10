@@ -9,8 +9,6 @@ export class EmpModal {
   salary: number;
   departmentId: string;
   designationId: string;
-  departmentName: string;
-  designationName: string;
 
   constructor() {
     this.employeeId = 0;
@@ -23,8 +21,6 @@ export class EmpModal {
     this.salary = 0;
     this.departmentId = '';
     this.designationId = '';
-    this.departmentName = '';
-    this.designationName = '';
   }
 }
 

@@ -24,7 +24,7 @@ export class EmployeeFormComponent {
     this.deptList$ = empServ_.getAllDepartments();
   }
   onSaveEmployee() {
-    debugger;
+    // debugger;
     this.empServ_.createEmployee(this.employeeObj).subscribe(
       (res: EmpModal) => {
         alert('Employee Created Successfully.');
