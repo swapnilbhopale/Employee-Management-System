@@ -1,0 +1,25 @@
+.container-fluid {
+  .card {
+    .card-header {
+      font-size: 25px;
+      text-align: center;
+      font-weight: bold;
+    }
+    .row {
+      margin-top: 15px;
+      label {
+        font-size: 21px;
+      }
+
+      input {
+        border-color: black;
+      }
+      select {
+        border-color: black;
+      }
+      .gender-input {
+        font-size: 18px;
+      }
+    }
+  }
+}

@@ -1,0 +1,148 @@
+<!-- <form> -->
+<div class="container-fluid">
+  <div class="card">
+    <div class="card-header bg-warning">New Employee</div>
+    <div class="card-body">
+      <div class="row">
+        <div class="col-6">
+          <label>Full Name</label>
+          <input
+            class="form-control"
+            type="text"
+            name=""
+            placeholder="full name"
+            [(ngModel)]="employeeObj.fullName"
+          />
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-3">
+          <label for="">Email</label>
+          <input
+            class="form-control"
+            type="text"
+            name=""
+            placeholder="email"
+            [(ngModel)]="employeeObj.email"
+          />
+        </div>
+
+        <div class="col-3">
+          <label for="">Phone</label>
+          <input
+            class="form-control"
+            type="text"
+            name=""
+            placeholder="phone number"
+            [(ngModel)]="employeeObj.phone"
+          />
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-3">
+          <label for="">Gender</label>
+          <br />
+          <input
+            class="gender-input ms-2"
+            type="radio"
+            name="gender"
+            value="male"
+            [(ngModel)]="employeeObj.gender"
+          />
+          <span class="ms-2 me-4 fs-5">Male</span>
+          <input
+            class="gender-input"
+            type="radio"
+            name="gender"
+            value="female"
+            [(ngModel)]="employeeObj.gender"
+          />
+          <Span class="ms-2 fs-5">Female</Span>
+        </div>
+        <div class="col-3">
+          <label for="">Date of Joining</label>
+          <input
+            class="form-control"
+            type="date"
+            name=""
+            [(ngModel)]="employeeObj.dateOfJoining"
+          />
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-3">
+          <label for="">Select Department</label>
+          <select
+            class="form-select"
+            name=""
+            id=""
+            [(ngModel)]="employeeObj.departmentId"
+            (change)="getDesignation()"
+          >
+            <option value="">-----Select-----</option>
+            <option
+              *ngFor="let dept of deptList$ | async"
+              [value]="dept.departmentId"
+            >
+              {{ dept.departmentName }}
+            </option>
+          </select>
+        </div>
+        <div class="col-3">
+          <label for="">Select Designation</label>
+          <select
+            class="form-select"
+            name=""
+            [(ngModel)]="employeeObj.designationName"
+            [disabled]="!employeeObj.departmentId"
+          >
+            <option value="">-----select-----</option>
+            @for(item of designationList; track $index){
+            <option [value]="item.designationId">
+              {{ item.designationName }}
+            </option>
+            }
+          </select>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-3">
+          <label for="">Select Employee Type</label>
+          <select
+            class="form-select"
+            name=""
+            id=""
+            [(ngModel)]="employeeObj.employeeType"
+          >
+            <option value="Contract">Contract</option>
+            <option value="Permanant">Permanant</option>
+          </select>
+        </div>
+        <div class="col-3">
+          <label for="">Salary</label>
+          <input
+            class="form-control"
+            type="number"
+            name=""
+            placeholder="salary"
+            [(ngModel)]="employeeObj.salary"
+          />
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-3 text-center">
+          <button class="btn btn-secondary">Reset</button>
+        </div>
+        <div class="col-3 text-center">
+          <button class="btn btn-success" (click)="onSaveEmployee()">
+            Save Employee
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- </form> -->
