@@ -1,9 +1,9 @@
-<div class="container-fluid mt-2">
+<div class="container-fluid m-2">
   <div class="card">
     <div class="card-header bg-info">Employee List Portal</div>
     <div class="card-body">
       <table class="table table-bordered table-striped">
-        <thead class="text-center">
+        <thead class="text-center align-middle">
           <tr>
             <th>Sr No.</th>
             <th>Full Name</th>
@@ -13,13 +13,14 @@
             <th>Epmloyee Type</th>
             <th>Epmloyee Department</th>
             <th>Epmloyee Designation</th>
+            <th>Salary</th>
             <th>Action</th>
           </tr>
         </thead>
         <tbody>
           @for( item of employeeList; track $index){
           <tr>
-            <td>{{ $index + 1 }}|{{ item.employeeId }}</td>
+            <td>{{ $index + 1 }}</td>
             <td>{{ item.fullName }}</td>
             <td>{{ item.phone }}</td>
             <td>{{ item.email }}</td>
@@ -27,15 +28,18 @@
             <td>{{ item.employeeType }}</td>
             <td>{{ item.departmentName }}</td>
             <td>{{ item.designationName }}</td>
+            <td class="price">{{ item.salary | currency : "INR" }}</td>
             <td>
-              <Button class="btn btn-info" (click)="onEdit(item.employeeId)"
-                >Edit</Button
-              >
-              <Button
-                class="btn btn-warning"
-                (click)="removeEmp(item.employeeId)"
-                >Remove</Button
-              >
+              <div class="action-wrapper">
+                <Button class="btn btn-info" (click)="onEdit(item.employeeId)"
+                  >Edit</Button
+                >
+                <Button
+                  class="btn btn-warning"
+                  (click)="removeEmp(item.employeeId)"
+                  >Remove</Button
+                >
+              </div>
             </td>
           </tr>
           }

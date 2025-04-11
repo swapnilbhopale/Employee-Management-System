@@ -3,21 +3,19 @@ import { Component, OnInit } from '@angular/core';
 import {
   FormControl,
   FormGroup,
-  FormsModule,
   ReactiveFormsModule,
   Validators,
 } from '@angular/forms';
 import { IEmpModal, IDepartment } from '../../Modal/employee';
-import { AsyncPipe, CommonModule } from '@angular/common';
+import { CommonModule } from '@angular/common';
 import { EmployeeService } from '../../Services/employee.service';
 import { ActivatedRoute, Router } from '@angular/router';
 import { foramteDateToYMD } from '../../Constants/varibale-constants';
-import { error } from 'console';
 
 @Component({
   selector: 'app-employee-form',
   standalone: true,
-  imports: [CommonModule, FormsModule, ReactiveFormsModule],
+  imports: [CommonModule, ReactiveFormsModule],
   templateUrl: './employee-form.component.html',
   styleUrl: './employee-form.component.scss',
 })

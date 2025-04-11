@@ -1,13 +1,13 @@
 import { Component, inject, OnInit } from '@angular/core';
 import { EmployeeService } from '../../Services/employee.service';
 import { IEmployeeList } from '../../Modal/employee';
-import { DatePipe } from '@angular/common';
+import { CurrencyPipe, DatePipe } from '@angular/common';
 import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-employee-list',
   standalone: true,
-  imports: [DatePipe],
+  imports: [DatePipe, CurrencyPipe],
   templateUrl: './employee-list.component.html',
   styleUrl: './employee-list.component.scss',
 })
@@ -22,7 +22,6 @@ export class EmployeeListComponent implements OnInit {
   getAllEmployees() {
     this.empServ_.getAllEmployees().subscribe((res: IEmployeeList[]) => {
       this.employeeList = res;
-      // console.log(res);
     });
   }
   removeEmp(id: number) {
