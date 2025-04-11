@@ -1,4 +1,4 @@
-export class IEmpModal {
+export interface IEmpModal {
   employeeId: number;
   fullName: string;
   email: string;
@@ -10,18 +10,18 @@ export class IEmpModal {
   departmentId: string;
   designationId: string;
 
-  constructor() {
-    this.employeeId = 0;
-    this.fullName = '';
-    this.email = '';
-    this.phone = '';
-    this.gender = '';
-    this.dateOfJoining = '';
-    this.employeeType = '';
-    this.salary = 0;
-    this.departmentId = '';
-    this.designationId = '';
-  }
+  // constructor() {
+  //   this.employeeId = 0;
+  //   this.fullName = '';
+  //   this.email = '';
+  //   this.phone = '';
+  //   this.gender = '';
+  //   this.dateOfJoining = '';
+  //   this.employeeType = '';
+  //   this.salary = 0;
+  //   this.departmentId = '';
+  //   this.designationId = '';
+  // }
 }
 
 export interface IDepartment {
