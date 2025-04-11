@@ -15,6 +15,7 @@ import {
   GET_DEPTS,
   GET_DESIGANTION_BY_ID,
   GET_EPMS,
+  UPDATE_EMP,
 } from '../Constants/varibale-constants';
 
 @Injectable({
@@ -44,5 +45,16 @@ export class EmployeeService {
 
   deleteEmp(id: number) {
     return this.http.delete(`${this.apiUrl + DELETE_EMP}?id=${id}`);
+  }
+
+  getEmployeeById(id: number): Observable<IEmpModal> {
+    return this.http.get<IEmpModal>(this.apiUrl + id);
+  }
+
+  updateEmployee(obj: IEmpModal): Observable<IEmpModal> {
+    return this.http.put<IEmpModal>(
+      `${this.apiUrl + UPDATE_EMP}?id=${obj.employeeId}`,
+      obj
+    );
   }
 }

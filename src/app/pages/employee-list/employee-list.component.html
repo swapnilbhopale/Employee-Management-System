@@ -19,7 +19,7 @@
         <tbody>
           @for( item of employeeList; track $index){
           <tr>
-            <td>{{ $index + 1 }}</td>
+            <td>{{ $index + 1 }}|{{ item.employeeId }}</td>
             <td>{{ item.fullName }}</td>
             <td>{{ item.phone }}</td>
             <td>{{ item.email }}</td>
