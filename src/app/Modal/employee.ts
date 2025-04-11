@@ -9,19 +9,8 @@ export interface IEmpModal {
   salary: number;
   departmentId: string;
   designationId: string;
-
-  // constructor() {
-  //   this.employeeId = 0;
-  //   this.fullName = '';
-  //   this.email = '';
-  //   this.phone = '';
-  //   this.gender = '';
-  //   this.dateOfJoining = '';
-  //   this.employeeType = '';
-  //   this.salary = 0;
-  //   this.departmentId = '';
-  //   this.designationId = '';
-  // }
+  departmentName?: string;
+  designationName?: string;
 }
 
 export interface IDepartment {
@@ -35,15 +24,15 @@ export interface IDesigantion {
   designationName: string;
 }
 
-export interface IEmployeeList {
-  employeeId: number;
-  fullName: string;
-  email: string;
-  phone: string;
-  gender: string;
-  dateOfJoining: string;
-  employeeType: string;
-  salary: number;
-  departmentName: string;
-  designationName: string;
-}
+// export interface IEmpModal {
+//   employeeId: number;
+//   fullName: string;
+//   email: string;
+//   phone: string;
+//   gender: string;
+//   dateOfJoining: string;
+//   employeeType: string;
+//   salary: number;
+//   departmentName: string;
+//   designationName: string;
+// }

@@ -5,6 +5,20 @@
       text-align: center;
       font-weight: bold;
     }
+    th {
+      .icon {
+        i {
+          cursor: pointer;
+          border: 1px solid black;
+          border-radius: 5px;
+          padding: 0 3px;
+          margin: 0 4px;
+        }
+        i.active {
+          background-color: rgb(200, 205, 205);
+        }
+      }
+    }
 
     td {
       display: table-cell;

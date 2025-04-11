@@ -1,11 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import {
-  IEmpModal,
-  IDepartment,
-  IDesigantion,
-  IEmployeeList,
-} from '../Modal/employee';
+import { IEmpModal, IDepartment, IDesigantion } from '../Modal/employee';
 import { BASE_URL } from '../environment';
 import { Observable } from 'rxjs';
 import {
@@ -39,8 +34,8 @@ export class EmployeeService {
     );
   }
 
-  getAllEmployees(): Observable<IEmployeeList[]> {
-    return this.http.get<IEmployeeList[]>(`${this.apiUrl + GET_EPMS}`);
+  getAllEmployees(): Observable<IEmpModal[]> {
+    return this.http.get<IEmpModal[]>(`${this.apiUrl + GET_EPMS}`);
   }
 
   deleteEmp(id: number) {
