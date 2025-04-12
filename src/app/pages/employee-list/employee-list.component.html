@@ -1,0 +1,69 @@
+<div class="container-fluid m-2">
+  <div class="card">
+    <div class="card-header bg-info">Employee List Portal</div>
+    <div class="card-body">
+      <table class="table table-bordered table-striped">
+        <thead class="text-center align-middle">
+          <tr>
+            <th>Sr No.</th>
+            <th>Full Name</th>
+            <th>Phone</th>
+            <th>Email</th>
+            <th>Joining Date</th>
+            <th>Epmloyee Type</th>
+            <th>Epmloyee Department</th>
+            <th>Epmloyee Designation</th>
+            <th>
+              Salary
+              <div class="icon">
+                <i
+                  class="bi bi-list"
+                  [ngClass]="view == sort_type.LIST_VIEW ? 'active' : ''"
+                  (click)="sort(sort_type.LIST_VIEW)"
+                ></i>
+                <i
+                  class="bi bi-sort-down"
+                  [ngClass]="view == sort_type.DES_VIEW ? 'active' : ''"
+                  (click)="sort(sort_type.DES_VIEW)"
+                ></i>
+                <i
+                  class="bi bi-sort-up"
+                  [ngClass]="view == sort_type.ASC_VIEW ? 'active' : ''"
+                  (click)="sort(sort_type.ASC_VIEW)"
+                ></i>
+              </div>
+            </th>
+            <th>Action</th>
+          </tr>
+        </thead>
+        <tbody>
+          @for( item of employeeList; track $index){
+          <tr>
+            <td>{{ $index + 1 }}</td>
+            <td>{{ item.fullName }}</td>
+            <td>{{ item.phone }}</td>
+            <td>{{ item.email }}</td>
+            <td>{{ item.dateOfJoining | date : "dd-MMM-yyyy" }}</td>
+            <td>{{ item.employeeType }}</td>
+            <td>{{ item.departmentName }}</td>
+            <td>{{ item.designationName }}</td>
+            <td class="price">{{ item.salary | currency : "INR" }}</td>
+            <td>
+              <div class="action-wrapper">
+                <Button class="btn btn-info" (click)="onEdit(item.employeeId)"
+                  >Edit</Button
+                >
+                <Button
+                  class="btn btn-warning"
+                  (click)="removeEmp(item.employeeId)"
+                  >Remove</Button
+                >
+              </div>
+            </td>
+          </tr>
+          }
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
