@@ -62,8 +62,11 @@ export class EmployeeListComponent implements OnInit {
     if (!inputVal) {
       this.employeeList = this.originalEmployeeList;
     } else {
-      this.employeeList = this.originalEmployeeList.filter((val) =>
-        val.fullName.toLowerCase().includes(inputVal)
+      this.employeeList = this.originalEmployeeList.filter(
+        (val) =>
+          val.fullName.toLowerCase().includes(inputVal) ||
+          val.email.toLowerCase().includes(inputVal) ||
+          val.phone.includes(inputVal)
       );
     }
   }
