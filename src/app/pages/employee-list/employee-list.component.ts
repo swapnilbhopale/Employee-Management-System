@@ -1,4 +1,4 @@
-import { Component, inject, OnInit } from '@angular/core';
+import { Component, inject, input, OnInit } from '@angular/core';
 import { EmployeeService } from '../../Services/employee.service';
 import { IEmpModal } from '../../Modal/employee';
 import { CommonModule, CurrencyPipe, DatePipe } from '@angular/common';
@@ -14,6 +14,7 @@ import { SOERT_TYPE } from '../../Constants/enum';
 })
 export class EmployeeListComponent implements OnInit {
   employeeList: IEmpModal[] = [];
+  originalEmployeeList: IEmpModal[] = [];
   sort_type = SOERT_TYPE;
   view = SOERT_TYPE.LIST_VIEW;
   empServ_ = inject(EmployeeService);
@@ -25,6 +26,7 @@ export class EmployeeListComponent implements OnInit {
   getAllEmployees() {
     this.empServ_.getAllEmployees().subscribe((res: IEmpModal[]) => {
       this.employeeList = res;
+      this.originalEmployeeList = res;
     });
   }
   removeEmp(id: number) {
@@ -51,6 +53,17 @@ export class EmployeeListComponent implements OnInit {
     } else if (view == this.sort_type.ASC_VIEW) {
       this.employeeList = this.employeeList.sort(
         (a: IEmpModal, b: IEmpModal) => b.salary - a.salary
+      );
+    }
+  }
+  searchByName(event: KeyboardEvent) {
+    const inputVal = (event.target as HTMLInputElement).value.toLowerCase();
+
+    if (!inputVal) {
+      this.employeeList = this.originalEmployeeList;
+    } else {
+      this.employeeList = this.originalEmployeeList.filter((val) =>
+        val.fullName.toLowerCase().includes(inputVal)
       );
     }
   }

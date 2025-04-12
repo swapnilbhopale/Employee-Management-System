@@ -2,6 +2,19 @@
   <div class="card">
     <div class="card-header bg-info">Employee List Portal</div>
     <div class="card-body">
+      <div class="col-4 mb-4">
+        <label class="fs-5 mb-1 border-bottom border-primary"
+          >Serach By Name</label
+        >
+        <input
+          class="form-control border border-dark"
+          type="text"
+          name="searbox"
+          id="serch-input"
+          placeholder="Serach By Employee Name"
+          (keyup)="searchByName($event)"
+        />
+      </div>
       <table class="table table-bordered table-striped">
         <thead class="text-center align-middle">
           <tr>
