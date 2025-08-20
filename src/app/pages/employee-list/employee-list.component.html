@@ -2,7 +2,20 @@
   <div class="card">
     <div class="card-header bg-info">Employee List Portal</div>
     <div class="card-body">
-      <table class="table table-bordered table-striped">
+      <div class="col-4 mb-4">
+        <label class="fs-5 mb-1 border-bottom border-primary"
+          >Serach By Name or Email or Phone No.</label
+        >
+        <input
+          class="form-control border border-dark"
+          type="text"
+          name="searbox"
+          id="serch-input"
+          placeholder="type employee name or email or phone no."
+          (keyup)="searchByName($event)"
+        />
+      </div>
+      <table class="table table-bordered table-striped border-secondary">
         <thead class="text-center align-middle">
           <tr>
             <th>Sr No.</th>
